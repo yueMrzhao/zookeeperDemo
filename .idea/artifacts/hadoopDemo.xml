@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="hadoopDemo">
+    <output-path>$PROJECT_DIR$/classes/artifacts/hadoopDemo</output-path>
+    <root id="archive" name="hadoopDemo.jar" />
+  </artifact>
+</component>
