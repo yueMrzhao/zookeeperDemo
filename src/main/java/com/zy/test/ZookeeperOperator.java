@@ -44,7 +44,8 @@ public class ZookeeperOperator extends AbstractZookeeper {
             } else {
                 System.out.println(path+"中有节点");
                 for(String child:list){
-                    System.out.println("节点为"+child);
+                    System.out.println("节点为:" + child);
+                    System.out.println("节点data为："+ getData(child));
                 }
             }
         } catch (KeeperException e) {
@@ -60,16 +61,15 @@ public class ZookeeperOperator extends AbstractZookeeper {
     public static void main(String[] args){
         try {
             ZookeeperOperator zkoperator = new ZookeeperOperator();
-            zkoperator.connect("192.168.1.5:2181");
+            zkoperator.connect("localhost:2181");
 
             byte[] data = new byte[]{'a', 'b', 'c', 'd'};
 
             String zktest = "zookeeper test";
 //            boolean isExists = zkoperator.zookeeper.exists("/my_data", null);
 //            zkoperator.create("/my_data/child1", zktest.getBytes());
-            System.out.println("获取位置信息："+ new String(zkoperator.getData("/my_data/child1")));
              System.out.println("节点信息列表：");
-            zkoperator.getChild("/my_data");
+            zkoperator.getChild("/com.zy.job");
 
             zkoperator.close();
         } catch (KeeperException e1){
